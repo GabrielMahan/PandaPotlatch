@@ -1,7 +1,7 @@
 class Movie < ApplicationRecord
 
   validates :title, presence: true
-  belongs_to :director, class_name: "User"
+  has_one :director, class_name: "User"
   has_many :reviews
   has_many :comments, as: :commentable
   has_many :reviewers, through: :reviews, source: :user

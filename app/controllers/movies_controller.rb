@@ -1,12 +1,13 @@
+require 'pry'
 class MoviesController < ApplicationController
 
   def index
+  end
+
+  def get_movies
     movies = Movie.all
-    respond_to do |format|
-      format.html
-      format.json { render json: movies }
-      binding.pry
-    end
+    render json: movies
+
   end
 
   def show

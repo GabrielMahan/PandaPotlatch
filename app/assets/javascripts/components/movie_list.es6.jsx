@@ -9,10 +9,11 @@ class MovieList extends React.Component {
   componentDidMount() {
     $.ajax({
       method: 'GET',
-      url: '/movies'
+      url: '/all_movies'
     })
     .done((response) => {
       this.setState({
+
         movies: response
       });
     });
@@ -24,8 +25,8 @@ class MovieList extends React.Component {
       <h1> Movies </h1>
       <ul>
         {
-          this.movies.map((movie, i) => {
-            return <li key={i}> {movie.title}</li>
+          this.state.movies.map((movie, i) => {
+            return <li key={i}><a href=`/movies/${movie.id}`> {movie.title}</a></li>
           })
         }
       </ul>
