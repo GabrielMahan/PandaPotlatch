@@ -1,10 +1,12 @@
 class App extends React.Component  {
 
-
   render() {
     return (
-      <div>
-        <h1>PandaPotlach</h1>
+      <div className="main">
+        <header id="side-nav">
+          <Nav currentUser={this.props.currentUser} />
+          <div id="app-title">PandaPotlach</div>
+        </header>
       </div>
       )
   }
