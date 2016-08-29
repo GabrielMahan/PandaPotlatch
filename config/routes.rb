@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root to: 'application#index'
   resources :movies, only: [:index, :show]
   get 'all_movies' => 'movies#get_movies'
+  get 'movies/:id/descriptions' => 'movies#descriptions'
 end
