@@ -20,13 +20,14 @@ class MovieList extends React.Component {
   }
 
   render(){
+       let url = "/movies/"
     return (
       <div>
       <h1> Movies </h1>
       <ul>
         {
           this.state.movies.map((movie, i) => {
-            return <li key={i}><a href=`/movies/${movie.id}`> {movie.title}</a></li>
+            return <li key={i}><a href={`/movies/${movie.id}`}> {movie.title}</a></li>
           })
         }
       </ul>
