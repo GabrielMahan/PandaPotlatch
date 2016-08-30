@@ -3,21 +3,20 @@ class VoteButton extends React.Component {
   constructor() {
   super();
   this.state = {
-    vote_count: 0
-    type: this.props
+    vote_count: 0,
   }
 }
   componentDidMount() {
     $.ajax({
       method: 'GET',
-      url: '/votes/index',
-      data: type
+      url: '/votes',
+      data: this.props
     })
-    .done((response){
-      this.setState({
-        vote_count: response
-      })
-    })
+    // .done((response){
+    //   this.setState({
+    //     vote_count: response
+    //   })
+    // })
   }
 
   render() {
