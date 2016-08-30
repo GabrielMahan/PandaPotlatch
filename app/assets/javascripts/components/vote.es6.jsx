@@ -29,7 +29,6 @@ class VoteButton extends React.Component {
       data: this.props
     })
     .done((response) => {
-      debugger;
       this.setState({
         vote_count: response
       })
@@ -44,7 +43,6 @@ class VoteButton extends React.Component {
       data: this.props
     })
     .done((response) => {
-      debugger;
       this.setState({
         vote_count: response
       })

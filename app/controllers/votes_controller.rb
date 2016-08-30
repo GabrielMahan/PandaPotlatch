@@ -17,12 +17,10 @@ before_action :data, only:[:index]
   end
 
   def upvote
-      binding.pry
     if params[:movie]
       find_movie
       type = "Movie"
       create_upvote
-      binding.pry
       value = vote_value(@movie)
     elsif params[:comment]
       find_comment
