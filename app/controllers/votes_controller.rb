@@ -20,17 +20,17 @@ before_action :data, only:[:index]
     if params[:movie]
       find_movie
       type = "Movie"
-      create_upvote
+      create_upvote(type)
       value = vote_value(@movie)
     elsif params[:comment]
       find_comment
       type = "Comment"
-      create_upvote
+      create_upvote(type)
       value = vote_value(@comment)
     else params[:review]
       find_review
       type = "Review"
-      create_upvote
+      create_upvote(type)
       value = vote_value(@review)
     end
       return render json: value
@@ -40,17 +40,17 @@ before_action :data, only:[:index]
     if params[:movie]
       find_movie
       type = "Movie"
-      create_downvote
+      create_downvote(type)
       value = vote_value(@movie)
     elsif params[:comment]
       find_comment
       type = "Comment"
-      create_downvote
+      create_downvote(type)
       value = vote_value(@comment)
     else params[:review]
       find_review
       type = "Review"
-      create_downvote
+      create_downvote(type)
       value = vote_value(@review)
     end
       return render json: value
@@ -84,11 +84,11 @@ private
     @review = Review.find(params[:review][:id])
   end
 
-  def create_upvote
-    Vote.create(user_id: current_user.id, up?: true, voteable_type: type, voteable_id: params[:id] )
+  def create_upvote(type)
+    Vote.create(user_id: current_user.id, up?: true, voteable_type: type, voteable_id: params[:movie][:id] )
   end
 
-  def create_downvote
-    Vote.create(user_id: current_user.id, up?: true, voteable_type: type,voteable_id: params[:id])
+  def create_downvote(type)
+    Vote.create(user_id: current_user.id, up?: true, voteable_type: type,voteable_id: params[:movie][:id])
   end
 end
