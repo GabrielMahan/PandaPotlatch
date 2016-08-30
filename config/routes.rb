@@ -10,8 +10,8 @@ Rails.application.routes.draw do
 
   get 'all_movies' => 'movies#get_movies'
 
-  get 'votes/upvote' => 'movies#upvote'
-  get 'votes/downvote' => 'movies#downvote'
+  post 'votes/upvote' => 'movies#upvote'
+  post 'votes/downvote' => 'movies#downvote'
 
 
 end

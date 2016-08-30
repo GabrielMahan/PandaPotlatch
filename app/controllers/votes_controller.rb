@@ -5,39 +5,37 @@ before_action :data, only:[:index]
   def index
     if params[:movie]
       find_movie
-      value = vote_value(movie)
+      value = vote_value(@movie)
     elsif params[:comment]
       find_comment
-      value = vote_value(comment)
-      render json: value
+      value = vote_value(@comment)
     else params[:review]
       find_review
-      value = vote_value(review)
-      render json: value
+      value = vote_value(@review)
     end
-    return render json: value
+      return render json: value
   end
 
   def upvote
+      binding.pry
     if params[:movie]
       find_movie
       type = "Movie"
       create_upvote
-      value = vote_value(movie)
+      binding.pry
+      value = vote_value(@movie)
     elsif params[:comment]
       find_comment
       type = "Comment"
       create_upvote
-      value = vote_value(comment)
-      render json: value
+      value = vote_value(@comment)
     else params[:review]
       find_review
       type = "Review"
       create_upvote
-      value = vote_value(review)
-      render json: value
+      value = vote_value(@review)
     end
-    return render json: value
+      return render json: value
   end
 
   def downvote
@@ -45,21 +43,19 @@ before_action :data, only:[:index]
       find_movie
       type = "Movie"
       create_downvote
-      value = vote_value(movie)
+      value = vote_value(@movie)
     elsif params[:comment]
       find_comment
       type = "Comment"
       create_downvote
-      value = vote_value(comment)
-      render json: value
+      value = vote_value(@comment)
     else params[:review]
       find_review
       type = "Review"
       create_downvote
-      value = vote_value(review)
-      render json: value
+      value = vote_value(@review)
     end
-    return render json: value
+      return render json: value
   end
 
   def create
@@ -79,15 +75,15 @@ private
   end
 
   def find_movie
-    movie = Movie.find(params[:movie][:id])
+    @movie = Movie.find(params[:movie][:id])
   end
 
   def find_comment
-    comment = Comment.find(params[:comment][:id])
+    @comment = Comment.find(params[:comment][:id])
   end
 
   def find_review
-    review = Review.find(params[:review][:id])
+    @review = Review.find(params[:review][:id])
   end
 
   def create_upvote
