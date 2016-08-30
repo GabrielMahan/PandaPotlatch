@@ -28,7 +28,7 @@ class MovieList extends React.Component {
         {
           this.state.movies.map((movie, i) => {
             return <li key={i}>
-              < MovieDescription movie={movie} />
+              <MovieDescription movie={movie} />
             </li>
           })
         }

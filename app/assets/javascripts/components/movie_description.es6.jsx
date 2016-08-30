@@ -17,9 +17,9 @@ render(){
 
   return (
     <div>
+
   <a href={`/movies/${movie.id}`}> {movie.title}</a>
   < VoteButton movie={movie} />
-
 
     {this.state.display ?  <form onClick={this.movieClick}>
       <input  type="submit" value="See More"/>
@@ -27,10 +27,16 @@ render(){
 
 
     : <div>
+
       {movie.description}
       <form onClick={this.movieClick}>
         <input  type="submit" value="See Less"/>
       </form>
+
+        <form onClick={this.movieClick}>
+          <input  type="submit" value="See More"/>
+        </form>
+        {this.props.movie.description}
       </div>
   }
 
