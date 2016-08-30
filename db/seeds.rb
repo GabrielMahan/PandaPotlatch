@@ -29,3 +29,20 @@ movies.map do |movie|
                director_id: directors[0].sample)
 end
 
+#Create 1 review per movie
+critics = []
+critics.push(User.where('access_level': 'critic').map {|critic| critic.id})
+
+movie_ids = Movie.all.map { |movie| movie.id }
+
+reviews = 12.times.map do
+  Review.create!(title: Faker::Hipster.word,
+                body: Faker::Hipster.paragraphs,
+                tomato_score:"#{rand(1..100)}%",
+                critic_id: critics[0].sample,
+                movie_id: movie_ids.sample)
+end
+
+#Create 3 comments on each review
+
+#Create votes
