@@ -31,7 +31,6 @@ end
 #Create 1 review per movie
 critics = []
 critics.push(User.where('access_level': 'critic').map {|critic| critic.id})
-
 movie_ids = Movie.all.map { |movie| movie.id }
 
 reviews = 12.times.map do
@@ -43,5 +42,21 @@ reviews = 12.times.map do
 end
 
 #Create 3 comments on each review
+types = [User.all, Review.all, Movie.all]
+comments = 36.times.map do
+  comment_type = types.sample
+  Comment.create!(body: Faker::Hipster.sentence,
+                  commentable_type: comment_type.first.class.name,
+                  commentable_id: comment_type.sample.id,
+                  user_id: User.all.sample.id)
+end
 
 #Create votes
+
+1000.times do
+  vote_type = types.sample
+  Vote.create!(up?: [true, false].sample,
+               user_id: types[0].sample.id,
+               voteable_type: vote_type.first.class.name,
+               voteable_id:vote_type.sample.id)
+end
