@@ -17,16 +17,17 @@ render(){
 
   return (
     <div>
-  <a href={`/movies/${movie.id}`}> {movie.title}</a>
+    <a href={`/movies/${movie.id}`}> {movie.title}</a>
     {this.state.display ?  <form onClick={this.movieClick}>
       <input  type="submit" value="See Less"/>
     </form>
 
 
-    : <div><form onClick={this.movieClick}>
-        <input  type="submit" value="See More"/>
-      </form>
-      {this.props.movie.description}
+    : <div>
+        <form onClick={this.movieClick}>
+          <input  type="submit" value="See More"/>
+        </form>
+        {this.props.movie.description}
       </div>
   }
 
