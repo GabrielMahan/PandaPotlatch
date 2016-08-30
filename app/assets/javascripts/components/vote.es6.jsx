@@ -5,8 +5,8 @@ class VoteButton extends React.Component {
   this.state = {
     vote_count: 0,
   }
-  this.upVote = this.upVote.bind(this)
-  this.downVote = this.downVote.bind(this)
+  // this.upVote = this.upVote.bind(this)
+  // this.downVote = this.downVote.bind(this)
 }
   componentDidMount() {
     $.ajax({
@@ -15,25 +15,26 @@ class VoteButton extends React.Component {
       data: this.props
     })
     .done((response) => {
+      debugger;
       this.setState({
         vote_count: response
       })
     })
   }
 
-  upVote(e) {
+  // upVote(e) {
 
-  }
+  // }
 
   render() {
     return(
       <div>
         Count: {this.state.vote_count}
-        <form onUpvote={this.upVote}>
-          <input type="submit">
+        <form onSubmit = {this.upVote}>
+          <input type="submit" value="up"/>
         </form>
-        <form onDownvote={this.downVote}>
-          <input type="submit">
+        <form onSubmit = {this.downVote}>
+          <input type="submit" value="down"/>
         </form>
       </div>
     )

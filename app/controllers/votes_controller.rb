@@ -4,18 +4,18 @@ before_action :data, only:[:index]
 
   def index
     if params[:movie]
-      movie = params[:movie]
-      value = movie.vote_value
-      render json: value
+      movie = Movie.find(params[:movie][:id].to_i)
+      value = vote_value(movie)
     elsif params[:comment]
-      comment = params[:comment]
-      value = comment.vote_value
+      comment = Comment.find(params[:comment][:id])
+      value = vote_value(comment)
       render json: value
     else params[:review]
-      review = params[:review]
-      value = review.vote_value
+      review = Review.find(params[:review][:id])
+      value = vote_value(review)
       render json: value
     end
+    return render json: value
   end
 
   def create
@@ -28,17 +28,9 @@ private
     params.permit(:review)
   end
 
-  def upvotes
-
-  end
-
-  def downvotes
-
-  end
-
-  def vote_value
-    up = self.votes.where(up?: true).count
-    down = self.votes.where(up?: false).count
-    return up-down
+  def vote_value(voteable)
+    up_count = voteable.votes.where(up?: true).length
+    down_count = voteable.votes.where(up?: false).length
+    return up_count - down_count
   end
 end
