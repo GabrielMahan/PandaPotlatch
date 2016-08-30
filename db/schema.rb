@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20160829200826) do
 
   create_table "movies", force: :cascade do |t|
     t.string   "title",        null: false
-    t.date     "release_date"
+    t.string   "release_date"
     t.text     "description"
     t.string   "img_src"
     t.string   "rating"
@@ -58,9 +58,6 @@ ActiveRecord::Schema.define(version: 20160829200826) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
