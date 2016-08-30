@@ -5,6 +5,7 @@ class App extends React.Component  {
     return (
       <div>
         <h1>PandaPotlach</h1>
+        <Festival />
       </div>
       )
   }

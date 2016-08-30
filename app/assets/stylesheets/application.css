@@ -13,3 +13,27 @@
  *= require_tree .
  *= require_self
  */
+
+
+#svg {
+  width: 100%;
+  height: 700px;
+  background: red;
+}
+
+#reel {
+  fill: rgba(0, 0, 0, 0.8);
+   animation:spin 4s linear infinite;
+}
+
+#square {
+  fill: green;
+  width: 100px;
+  heigth: 100px;
+  z-index: -6;
+  animation: spin 4s linear infinite;
+}
+
+#beardman {
+  width: 300px;
+}
