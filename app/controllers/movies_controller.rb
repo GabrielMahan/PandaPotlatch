@@ -1,4 +1,4 @@
-require 'pry'
+
 class MoviesController < ApplicationController
 
   def index
@@ -19,5 +19,7 @@ class MoviesController < ApplicationController
     movie = Movie.find(params[:id])
     @movie_desc = movie.to_json
   end
+
+
 
 end

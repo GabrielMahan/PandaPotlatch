@@ -4,6 +4,7 @@ class App extends React.Component  {
     return (
       <div>
         <Nav currentUser={this.props.currentUser} />
+        <Festival />
       </div>
       )
   }
