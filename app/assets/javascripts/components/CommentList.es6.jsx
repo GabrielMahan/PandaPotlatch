@@ -10,9 +10,8 @@ class CommentList extends React.Component {
     })
   }
 
+
   handleCommentSubmit() {
-
-
   }
 
   render() {
@@ -29,7 +28,6 @@ class CommentList extends React.Component {
           })}
         </ul>
       </div>
-
     )
   }
 }

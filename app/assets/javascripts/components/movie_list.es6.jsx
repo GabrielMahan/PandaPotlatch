@@ -2,12 +2,12 @@ class MovieList extends React.Component {
   constructor() {
   super();
   this.state = {
-    movies: [],
+    movies: []
     }
   }
 
 
-  componentDidMount() {
+  componentWillMount() {
     $.ajax({
       method: 'GET',
       url: '/all_movies'
@@ -18,8 +18,6 @@ class MovieList extends React.Component {
       });
     });
   }
-
-
 
 
   render(){
