@@ -1,31 +1,41 @@
-class MovieDescription {
-  constructor(){
+class MovieDescription extends React.Component {
+  constructor() {
     super();
     this.movieClick = this.movieClick.bind(this)
     this.state = {
-      display: false;
+      display: false
     }
   }
 
    movieClick(e) {
     e.preventDefault();
-    this.setState({
-    display: !display
-  })
+    this.setState({ display: !this.state.display })
 }
 
 render(){
   movie = this.props.movie
+
+  return (
+    <div>
   <a href={`/movies/${movie.id}`}> {movie.title}</a>
-  if ({this.state.display} === false)
-    <form onClick={this.movieClick}>
-      <input  type="submit" value="See More"/>
-    </form>
-    {this.props.movie.description}
-  else
-    <form onClick={this.movieClick}>
+    {this.state.display ?  <form onClick={this.movieClick}>
       <input  type="submit" value="See Less"/>
     </form>
-  end
+
+
+    : <div><form onClick={this.movieClick}>
+        <input  type="submit" value="See More"/>
+      </form>
+      {this.props.movie.description}
+      </div>
+  }
+
+
+
+
+    </div>
+    )
+
+
   }
 }
