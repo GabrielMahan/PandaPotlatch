@@ -5,13 +5,41 @@ class VoteButton extends React.Component {
   this.state = {
     vote_count: 0,
   }
-  // this.upVote = this.upVote.bind(this)
-  // this.downVote = this.downVote.bind(this)
+  this.upVote = this.upVote.bind(this)
+  this.downVote = this.downVote.bind(this)
 }
   componentDidMount() {
     $.ajax({
       method: 'GET',
       url: '/votes',
+      data: this.props
+    })
+    .done((response) => {
+      this.setState({
+        vote_count: response
+      })
+    })
+  }
+
+  upVote(e) {
+    e.preventDefault();
+    $.ajax({
+      method: 'POST',
+      url: '/votes/upvote',
+      data: this.props
+    })
+    .done((response) => {
+      this.setState({
+        vote_count: response
+      })
+    })
+  }
+
+  downVote(e) {
+    e.preventDefault();
+    $.ajax({
+      method: 'POST',
+      url: '/votes/downvote',
       data: this.props
     })
     .done((response) => {
@@ -21,10 +49,6 @@ class VoteButton extends React.Component {
       })
     })
   }
-
-  // upVote(e) {
-
-  // }
 
   render() {
     return(

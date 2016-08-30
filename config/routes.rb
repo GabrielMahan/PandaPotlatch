@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   resources :movies, only: [:index, :show]
 
   get 'all_movies' => 'movies#get_movies'
-  get 'movies/:id/descriptions' => 'movies#descriptions'
 
+  get 'votes/upvote' => 'movies#upvote'
+  get 'votes/downvote' => 'movies#downvote'
 
 
 end
