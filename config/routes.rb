@@ -6,11 +6,12 @@ Rails.application.routes.draw do
 
   get '/movies/:id/reviews', to: 'movies#reviews'
   resources :votes, only: [:create, :index]
-  resources :movies, only: [:index, :show]
+  resources :movies, only: [:index, :show] do
+    get '/reviews/:id', to: 'reviews#show'
+  end
 
   get 'all_movies' => 'movies#get_movies'
 
-  get '/reviews/:id', to: 'reviews#show'
 
   post 'votes/upvote' => 'votes#upvote'
   post 'votes/downvote' => 'votes#downvote'
