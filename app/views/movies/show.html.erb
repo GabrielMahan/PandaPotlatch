@@ -1,5 +1,8 @@
 <%=  react_component("Nav")   %>
 <div class="container">
-  <%= react_component('Movie', {movie: @movie_json}) %>
+  <% if current_user.id %>
+  <% @critic = true %>
+  <% end %>
+  <%= react_component('Movie', criticID: current_user.id , movie: @movie_json, critic: @critic) %>
 </div>
 

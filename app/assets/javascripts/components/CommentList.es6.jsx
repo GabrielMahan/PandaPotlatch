@@ -24,7 +24,6 @@ class CommentList extends React.Component {
       }
     }
     $.post('/comments', data).done( (response) => {
-        // debugger;
         this.setState({comments: this.state.comments.concat(response)})
     })
   }

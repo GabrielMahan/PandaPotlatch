@@ -28,7 +28,6 @@ class CommentsController < ApplicationController
     end
 
     if new_comment.save
-      puts "\n\n\n\n\n\n\n\n\n it worked"
       return render json: new_comment
     else
       return {error: 'you messed up'}
