@@ -5,8 +5,11 @@ class CommentList extends React.Component {
   }
 
   componentDidMount() {
-    $.post('/comments', this.props).done((response) => {
-      this.setState( {comments: response  } )
+      var commentRoute = "/" + Object.keys(this.props)[0] + "s/" + this.props[Object.keys(this.props)[0]].id + "/comments"
+
+      // debugger;
+    $.get(commentRoute).done((response) => {
+      this.setState( { comments: response  } )
     })
   }
 
@@ -24,7 +27,7 @@ class CommentList extends React.Component {
           <input type='submit' value="comment" />
         </form>
           {this.state.comments.map(function(comment) {
-            return <li>{comment.title} {comment.body} <Vote comment={comment} /> </li>
+            return <li> {comment.body} <VoteButton comment={comment} /> </li>
           })}
         </ul>
       </div>
