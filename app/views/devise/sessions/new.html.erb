@@ -1,4 +1,4 @@
-<%=  react_component("Nav")   %>
+<%=  react_component("Nav", userSignedIn: user_signed_in?) %>
 
 <div class="container">
   <h2>Log in</h2>
@@ -26,5 +26,7 @@
     </div>
   <% end %>
 
-  <%= render "devise/shared/links" %>
+  <div class="log-in-back">
+    <%= render "devise/shared/links" %>
+  </div>
 </div>

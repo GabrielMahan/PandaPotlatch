@@ -41,6 +41,51 @@
   text-align: center;
 }
 
+.container h2 {
+  font-size: 42px;
+}
+
+.field {
+  font-size: 25px;
+  line-height: 200%;
+  border-radius: 15%;
+}
+
+.field select {
+   background: black;
+   color: white;
+   width: 268px;
+   padding: 5px;
+   font-size: 16px;
+   line-height: 1;
+   border-radius: 0%;
+   height: 34px;
+   -webkit-appearance: none;
+}
+
+.actions input[type="submit"] {
+  background-color: white;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.actions input[type="submit"]:hover {
+  color:red;
+  font-size: 30px;
+}
+
+.log-in-back a {
+  color:#333;
+  font-size: 20px;
+}
+
+.log-in-back a:hover {
+  text-decoration: none;
+  color: red;
+  font-size: 30px;
+}
+
 #nav-button {
   display: inline-block;
   padding: 8.5px;
@@ -48,6 +93,10 @@
 
 #nav-button Button {
   text-decoration: none;
+}
+
+#nav-button Button:focus {
+  outline: 0;
 }
 
 .movie-list h1 {
