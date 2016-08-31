@@ -9,8 +9,7 @@ class ApplicationController < ActionController::Base
 
   def favorites
     if request.xhr?
-      movies = render json: Movie.all[0..5]
-      return movies
+      return render json: Movie.where.not(img_src: 'N/A')[0..8]
     end
   end
 
