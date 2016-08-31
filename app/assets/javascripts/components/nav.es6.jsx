@@ -14,7 +14,7 @@ class Nav extends React.Component  {
         <Navbar.Collapse>
             <Nav>
               <NavItem key={1} href='/'>Home</NavItem>
-                {this.props.currentUser ?
+                {this.props.UserSignedIn ?
                   (<NavItem key={2} href='/users/sign_out'>Log Out</NavItem>)
                 :
                   ([<NavItem key={3} href='/users/sign_up'>Register</NavItem>,
