@@ -24,13 +24,11 @@ class Movie extends React.Component {
       review: {
         title: this.refs.reviewTitle.value,
         tomato_score: this.refs.reviewTomatoscore.value,
-        body: this.refs.reviewBody.value,
-        critic_id: this.props.criticID,
-        movie_id: movie_id
+        body: this.refs.reviewBody.value
       }
     }
-
-    $.post({`/movies/${movie_id}/reviews`}, review_data).done( (response) => {
+    var post_review = `/movies/${movie_id}/reviews`
+    $.post(post_review, review_data).done( (response) => {
         this.setState({reviews: this.state.reviews.concat(response)})
     })
   }

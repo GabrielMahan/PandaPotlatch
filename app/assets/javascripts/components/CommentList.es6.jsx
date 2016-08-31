@@ -7,7 +7,7 @@ class CommentList extends React.Component {
   componentDidMount() {
       var commentRoute = "/" + Object.keys(this.props)[0] + "s/" + this.props[Object.keys(this.props)[0]].id + "/comments"
 
-      // debugger;
+
     $.get(commentRoute).done((response) => {
       this.setState( { comments: response  } )
     })

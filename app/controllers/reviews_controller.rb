@@ -6,8 +6,9 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    binding.pry
-    review = Review.new(params[:review])
+    review = Review.new(title: params[:review][:title],
+      tomato_score: params[:review][:tomato_score],
+      body: params[:review][:body], critic_id: current_user.id, movie_id: params[:movie_id] )
     if review.save
       return render json: review
     else
