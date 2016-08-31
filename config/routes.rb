@@ -16,5 +16,6 @@ Rails.application.routes.draw do
   post 'votes/downvote' => 'votes#downvote'
 
   get '/:type/:id/comments', to: 'comments#show'
+  post '/comments', to: "comments#create"
 
 end
