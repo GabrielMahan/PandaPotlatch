@@ -18,18 +18,19 @@ class Movie extends React.Component {
 
   addReview(e) {
     e.preventDefault();
-    var movie_id = JSON.parse(this.props.movie).id
+    var movie_id = JSON.parse(this.props.movie).id.toString()
+
     var review_data = {
       review: {
-        title: this.refs.reviewTitle,
-        tomato_score: this.refs.reviewTomatoscore,
-        body: this.refs.reviewBody,
+        title: this.refs.reviewTitle.value,
+        tomato_score: this.refs.reviewTomatoscore.value,
+        body: this.refs.reviewBody.value,
         critic_id: this.props.criticID,
         movie_id: movie_id
       }
-    debugger;
     }
-    $.post(`{/movies/${movie_id}/reviews}`, review_data).done( (response) => {
+
+    $.post({`/movies/${movie_id}/reviews`}, review_data).done( (response) => {
         this.setState({reviews: this.state.reviews.concat(response)})
     })
   }
