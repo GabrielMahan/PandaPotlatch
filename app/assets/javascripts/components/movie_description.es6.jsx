@@ -21,8 +21,8 @@ render(){
   <a href={`/movies/${movie.id}`}> {movie.title}</a><br />
 
   { movie.img_src != "N/A" ?
-  <img src={movie.img_src}/> :
-  <img src='http://www.edinburghzoo.org.uk/media/3455/ezpanda.png'/>
+  <a href={`/movies/${movie.id}`}><img src={movie.img_src}/></a> :
+  <a href={`/movies/${movie.id}`}><img src='http://www.edinburghzoo.org.uk/media/3455/ezpanda.png'/></a>
   }
 
   {this.props.UserSignedIn ?
