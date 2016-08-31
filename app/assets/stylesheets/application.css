@@ -198,6 +198,8 @@ background: linear-gradient(45deg, rgba(227,227,227,1) 0%, rgba(219,219,219,0.17
 
 body {
   background-image: url("http://blog.hdwallsource.com/wp-content/uploads/2014/11/gradients-26042-26727-hd-wallpapers.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .homelr {
