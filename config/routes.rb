@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/movies/:id/reviews', to: 'movies#reviews'
   resources :votes, only: [:create, :index]
   resources :movies, only: [:index, :show] do
-    get '/reviews/:id', to: 'reviews#show'
+    resources :reviews, only: [:show, :create]
   end
 
   get 'all_movies' => 'movies#get_movies'
