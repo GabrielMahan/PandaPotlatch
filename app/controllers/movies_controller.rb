@@ -20,6 +20,8 @@ class MoviesController < ApplicationController
     @movie_desc = movie.to_json
   end
 
-
+  def reviews
+    return render json: Movie.find(params[:id]).reviews
+  end
 
 end

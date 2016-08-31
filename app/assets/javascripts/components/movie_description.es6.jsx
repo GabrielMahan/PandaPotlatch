@@ -13,25 +13,40 @@ class MovieDescription extends React.Component {
 }
 
 render(){
-  movie = this.props.movie
+  var movie = this.props.movie;
 
   return (
     <div>
+
+
+
+
   <a href={`/movies/${movie.id}`}> {movie.title}</a>
+
+
+  <VoteButton movie={movie} />
+
+
+
     {this.state.display ?  <form onClick={this.movieClick}>
-      <input  type="submit" value="See Less"/>
+      <input  type="submit" value="See More"/>
     </form>
 
 
-    : <div><form onClick={this.movieClick}>
-        <input  type="submit" value="See More"/>
+    : <div>
+
+
+      {movie.description}
+      <form onClick={this.movieClick}>
+        <input  type="submit" value="See Less"/>
       </form>
-      {this.props.movie.description}
+
+        <form onClick={this.movieClick}>
+          <input  type="submit" value="See More"/>
+        </form>
+        {this.props.movie.description}
       </div>
   }
-
-
-
 
     </div>
     )
