@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20160829200826) do
     t.string   "email",                              null: false
     t.string   "encrypted_password",                 null: false
     t.string   "access_level",                       null: false
+    t.string   "access_token"
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
     t.string   "reset_password_token"

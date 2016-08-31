@@ -42,3 +42,11 @@
   text-align: center;
 }
 
+#nav-button {
+  display: inline-block;
+  padding: 8.5px;
+}
+
+#nav-button Button {
+  text-decoration: none;
+}

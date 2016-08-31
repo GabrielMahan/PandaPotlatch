@@ -1,6 +1,7 @@
-
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+
+  # before_action :authenticate_user!
 
   def index
   end
@@ -9,7 +10,6 @@ class ApplicationController < ActionController::Base
   def favorites
     if request.xhr?
       movies = render json: Movie.all[0..5]
-      # binding.pry
       return movies
     end
   end

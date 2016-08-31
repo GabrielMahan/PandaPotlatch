@@ -11,6 +11,4 @@ Rails.application.routes.draw do
   get 'all_movies' => 'movies#get_movies'
   get 'movies/:id/descriptions' => 'movies#descriptions'
 
-
-
 end
