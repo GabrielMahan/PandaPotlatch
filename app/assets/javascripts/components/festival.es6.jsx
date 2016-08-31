@@ -12,62 +12,30 @@ class Festival extends React.Component {
 
   render() {
     return (
-      <div>
+        <div id="homeBlanket">
+          <div id="titleWrap">
+                    <div id="festivalInfo">
+                      <h1> August 31 @ DBC </h1>
+                      <div>
+                          The all-panda, all-film, community gathering.<br /><br /> B.Y.O.Bamboo
+                          <br /> <br /><div className="homelr"> <a href="/users/sign_in"> Login </a> </div> <div className="homelr"><a href="/users/sign_up">  Register </a> </div>
+                      </div>
 
-        <div>
-          <h3> this is div wiht cool info about festival </h3>
-          <img id="beardman" src="http://www.menshairstyletrends.com/wp-content/uploads/2015/09/beardedvillains_volkdemir_hard-part-fade-combover-long-beard.jpg" />
+                    </div>
+                     <div id="aaa" >
+                          <div id='gmap_canvas'>
+                          </div>
+                    </div>
+          </div>
+          <div id="posterWall">
+
+            { this.state.favorites.map(function(fav, i) {
+              return (
+                <div key={i} className="wallPoster"><div className="imgContainer"><a href={`/movies/${fav.id}`}> <img src={fav.img_src} /> </a></div></div>
+                )
+            })}
+          </div>
         </div>
-        <div id="fetival info">
-          <h1> welcome to Panda Potlatch!!! </h1>
-        </div>
-        <div>
-          <ul>
-          { this.state.favorites.map(function(fav) {
-            return (
-              <li><a href={`/movies/${fav.id}`}> {fav.title} </a></li>
-              )
-          })}
-          </ul>
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-        //everything below is garbage
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <div id='badSVG'>
-          <svg id='svg'>
-            <circle id="reel"  cx="50%" cy="50%" r="40%">
-
-
-            </circle>
-            <a href="/movies">
-              <rect x="50%" y="50%" id="square" width="300" height="100" />
-            </a>
-          </svg>
-        </div>
-      </div>
     )
   }
 }
