@@ -16,41 +16,42 @@ render(){
   var movie = this.props.movie;
 
   return (
-    <div>
+<div>
 
 
 
 
   <a href={`/movies/${movie.id}`}> {movie.title}</a>
 
-
+  {this.props.UserSignedIn ?
+  <div>
   <VoteButton movie={movie} />
+  </div>
+  :
+  <div></div>
+}
 
 
-
-    {this.state.display ?  <form onClick={this.movieClick}>
+    {this.state.display ?
+    <form onClick={this.movieClick}>
       <input  type="submit" value="See More"/>
     </form>
 
 
     : <div>
 
-
       {movie.description}
       <form onClick={this.movieClick}>
         <input  type="submit" value="See Less"/>
       </form>
 
-        <form onClick={this.movieClick}>
-          <input  type="submit" value="See More"/>
-        </form>
-        {this.props.movie.description}
       </div>
   }
 
-    </div>
+
+</div>
     )
 
-
   }
+
 }

@@ -5,12 +5,11 @@ class Movie extends React.Component {
   constructor() {
     super()
 
-    this.state = { movie: [], reviews: [] }
+    this.state = { reviews: [] }
 
   }
 
   componentDidMount() {
-    this.setState({ movie: this.props.movie })
     var movieGet = "/movies/" + JSON.parse(this.props.movie).id + "/reviews"
     $.get(movieGet).done( (response) => {
       this.setState({reviews: response})

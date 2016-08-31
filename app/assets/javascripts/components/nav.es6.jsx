@@ -3,7 +3,6 @@ class Nav extends React.Component  {
   render () {
     let { Navbar, NavDropdown, NavItem, MenuItem, Nav, Button } = ReactBootstrap;
     var csrfValue = $("meta[name='csrf-token']").attr('content');
-    // debugger;
 
     return (
       <Navbar inverse>
