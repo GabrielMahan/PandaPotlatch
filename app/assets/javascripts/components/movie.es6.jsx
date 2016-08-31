@@ -29,7 +29,7 @@ class Movie extends React.Component {
         <p>{JSON.parse(this.props.movie).genre}</p>
         <p><img src={JSON.parse(this.props.movie).img_src} /></p>
         <ReviewList movie={JSON.parse(this.props.movie)} reviews={this.state.reviews}/>
-
+        <CommentList movie={ JSON.parse(this.props.movie) } />
       </div>
     )
   }
