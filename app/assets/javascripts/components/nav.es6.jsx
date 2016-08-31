@@ -1,7 +1,9 @@
 class Nav extends React.Component  {
 
   render () {
-    let { Navbar, NavDropdown, NavItem, MenuItem, Nav } = ReactBootstrap;
+    let { Navbar, NavDropdown, NavItem, MenuItem, Nav, Button } = ReactBootstrap;
+    var csrfValue = $("meta[name='csrf-token']").attr('content');
+    // debugger;
 
     return (
       <Navbar inverse>
@@ -14,11 +16,18 @@ class Nav extends React.Component  {
         <Navbar.Collapse>
             <Nav>
               <NavItem key={1} href='/'>Home</NavItem>
-                {this.props.currentUser ?
+                {this.props.userSignedIn ?
                   (
-                    <form action='/users/sign_out' method="POST">
-                      <input type="hidden" name="_method" value="delete" />
-                      <input type="submit" value= "Log Out"/>
+                    <form id="nav-button" action='/users/sign_out' method="POST">
+                      <input
+                        type="hidden"
+                        name="_method"
+                        value="delete" />
+                      <input
+                      type='hidden'
+                      name='authenticity_token'
+                      value={csrfValue} />
+                      <Button key={2} bsStyle="link" type="submit">Log Out</Button>
                     </form>)
                 :
                   ([<NavItem key={3} href='/users/sign_up'>Register</NavItem>,

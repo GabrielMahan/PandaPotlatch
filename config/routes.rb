@@ -12,7 +12,6 @@ Rails.application.routes.draw do
 
   get 'all_movies' => 'movies#get_movies'
 
-
   post 'votes/upvote' => 'votes#upvote'
   post 'votes/downvote' => 'votes#downvote'
 
