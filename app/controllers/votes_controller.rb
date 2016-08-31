@@ -21,19 +21,19 @@ before_action :data, only:[:index]
       typeobj = params[:movie]
       find_movie
       type = "Movie"
-      create_upvote(type)
+      create_upvote(type, typeobj)
       value = vote_value(@movie)
     elsif params[:comment]
       typeobj = params[:comment]
       find_comment
       type = "Comment"
-      create_upvote(type)
+      create_upvote(type, typeobj)
       value = vote_value(@comment)
     else params[:review]
       typeobj = params[:review]
       find_review
       type = "Review"
-      create_upvote(type)
+      create_upvote(type, typeobj)
       value = vote_value(@review)
     end
       return render json: value
@@ -41,19 +41,22 @@ before_action :data, only:[:index]
 
   def downvote
     if params[:movie]
-      find_movie
+      typeobj = params[:movie]
       type = "Movie"
-      create_downvote(type)
+      create_downvote(type, typeobj)
+      find_movie
       value = vote_value(@movie)
     elsif params[:comment]
       find_comment
       type = "Comment"
-      create_downvote(type)
+      typeobj = params[:comment]
+      create_downvote(type,typeobj)
       value = vote_value(@comment)
     else params[:review]
       find_review
       type = "Review"
-      create_downvote(type)
+      typeobj = params[:review]
+      create_downvote(type, typeobj)
       value = vote_value(@review)
     end
       return render json: value
@@ -87,16 +90,11 @@ private
     @review = Review.find(params[:review][:id])
   end
 
-  def create_upvote(type)
-    puts "\n\n\n\n\n\n\n\n\n\n\n"
-    p params
-    # binding.pry
-    puts "\n\n\n\n\n\n\n\n\n\n\n"
-
+  def create_upvote(type, typeobj)
     Vote.create(user_id: current_user.id, up?: true, voteable_type: type, voteable_id: typeobj[:id] )
   end
 
-  def create_downvote(type)
-    Vote.create(user_id: current_user.id, up?: true, voteable_type: type,voteable_id: typeobj[:id])
+  def create_downvote(type, typeobj)
+    Vote.create(user_id: current_user.id, up?: false, voteable_type: type, voteable_id: typeobj[:id])
   end
 end
