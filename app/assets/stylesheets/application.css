@@ -14,24 +14,14 @@
  *= require_self
  */
 
-#svg {
-  width: 100%;
-  height: 700px;
-  background: red;
+* {
+  font-family: 'Baloo Paaji', cursive;
 }
 
-#reel {
-  fill: rgba(0, 0, 0, 0.8);
-   animation:spin 4s linear infinite;
+.wrap {
+background: linear-gradient(45deg, rgba(227,227,227,1) 0%, rgba(219,219,219,0.17) 49%, rgba(219,219,219,0.17) 50%, rgba(209,209,209,0.17) 51%, rgba(255,255,255,0.17) 72%);
 }
 
-#square {
-  fill: green;
-  width: 100px;
-  heigth: 100px;
-  z-index: -6;
-  animation: spin 4s linear infinite;
-}
 
 #beardman {
   width: 300px;
@@ -100,6 +90,7 @@
 }
 
 .movie-list h1 {
+  color: white;
   padding-left: 37px;
   padding-bottom: 30px;
   font-size: 42px;
@@ -115,7 +106,7 @@
 }
 
 .movie-desc a {
-  color: #333;
+  color: white;
   font-size: 25px;
 }
 
@@ -145,7 +136,7 @@
 }
 
 .vote-buttons input {
-  background-color: white;
+  background-color: transparent;
   border: none;
   font-size: 20px;
   font-weight: bold;

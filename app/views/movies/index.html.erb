@@ -1,9 +1,9 @@
 <%=  react_component("Nav", userSignedIn: user_signed_in?)   %>
 
-<div class="container">
+<div class="wrap">
+  <div class="container">
+    <%= react_component('MovieList', UserSignedIn: user_signed_in?) %>
+  </div>
 
-  <%= react_component('MovieList', UserSignedIn: user_signed_in?) %>
+
 </div>
-
-
-
