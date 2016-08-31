@@ -18,16 +18,19 @@ before_action :data, only:[:index]
 
   def upvote
     if params[:movie]
+      typeobj = params[:movie]
       find_movie
       type = "Movie"
       create_upvote(type)
       value = vote_value(@movie)
     elsif params[:comment]
+      typeobj = params[:comment]
       find_comment
       type = "Comment"
       create_upvote(type)
       value = vote_value(@comment)
     else params[:review]
+      typeobj = params[:review]
       find_review
       type = "Review"
       create_upvote(type)
@@ -85,10 +88,15 @@ private
   end
 
   def create_upvote(type)
-    Vote.create(user_id: current_user.id, up?: true, voteable_type: type, voteable_id: params[:movie][:id] )
+    puts "\n\n\n\n\n\n\n\n\n\n\n"
+    p params
+    # binding.pry
+    puts "\n\n\n\n\n\n\n\n\n\n\n"
+
+    Vote.create(user_id: current_user.id, up?: true, voteable_type: type, voteable_id: typeobj[:id] )
   end
 
   def create_downvote(type)
-    Vote.create(user_id: current_user.id, up?: true, voteable_type: type,voteable_id: params[:movie][:id])
+    Vote.create(user_id: current_user.id, up?: true, voteable_type: type,voteable_id: typeobj[:id])
   end
 end
