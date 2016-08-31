@@ -51,13 +51,13 @@ class VoteButton extends React.Component {
 
   render() {
     return(
-      <div>
-        Count: {this.state.vote_count}
-        <form onSubmit = {this.upVote}>
-          <input type="submit" value="up"/>
+      <div id="vote">
+        <p>Vote Count: {this.state.vote_count}</p>
+        <form className="vote-buttons" onSubmit = {this.upVote}>
+          <input type="submit" value="&uarr;"/>
         </form>
-        <form onSubmit = {this.downVote}>
-          <input type="submit" value="down"/>
+        <form className="vote-buttons" onSubmit = {this.downVote}>
+          <input type="submit" value="&darr;"/>
         </form>
       </div>
     )

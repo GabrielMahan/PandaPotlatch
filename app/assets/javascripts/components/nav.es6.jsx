@@ -15,6 +15,7 @@ class Nav extends React.Component  {
         <Navbar.Collapse>
             <Nav>
               <NavItem key={1} href='/'>Home</NavItem>
+              <NavItem key={5} href='/movies'>Movies</NavItem>
                 {this.props.userSignedIn ?
                   (
                     <form id="nav-button" action='/users/sign_out' method="POST">

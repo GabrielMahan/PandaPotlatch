@@ -22,17 +22,17 @@ class MovieList extends React.Component {
 
   render(){
     return (
-      <div>
-      <h1> Movies </h1>
-      <ul>
-        {
-          this.state.movies.map((movie, i) => {
-            return <li key={i}>
-              <MovieDescription UserSignedIn={this.props.UserSignedIn} movie={movie} />
-            </li>
-          })
-        }
-      </ul>
+      <div className="movie-list">
+        <h1>Movies</h1>
+        <ul>
+          {
+            this.state.movies.map((movie, i) => {
+              return <li key={i}>
+                <MovieDescription UserSignedIn={this.props.UserSignedIn} movie={movie} />
+              </li>
+            })
+          }
+        </ul>
       </div>
     )
   }

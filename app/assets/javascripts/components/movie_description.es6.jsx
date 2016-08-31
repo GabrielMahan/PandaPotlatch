@@ -16,38 +16,35 @@ render(){
   var movie = this.props.movie;
 
   return (
-<div>
+<div className="movie-desc">
 
+  <a href={`/movies/${movie.id}`}> {movie.title}</a><br />
 
-
-
-  <a href={`/movies/${movie.id}`}> {movie.title}</a>
+  { movie.img_src != "N/A" ?
+  <img src={movie.img_src}/> :
+  <img src='http://www.edinburghzoo.org.uk/media/3455/ezpanda.png'/>
+  }
 
   {this.props.UserSignedIn ?
   <div>
-  <VoteButton movie={movie} />
+    <VoteButton movie={movie} />
   </div>
   :
   <div></div>
 }
 
-
     {this.state.display ?
-    <form onClick={this.movieClick}>
-      <input  type="submit" value="See More"/>
-    </form>
-
-
-    : <div>
-
-      {movie.description}
-      <form onClick={this.movieClick}>
-        <input  type="submit" value="See Less"/>
-      </form>
-
+      <div>
+        {movie.description}
+        <form className="desc-toggle" onClick={this.movieClick}>
+          <input  type="submit" value="See Less"/>
+        </form>
       </div>
+    :
+      <form className="desc-toggle" onClick={this.movieClick}>
+        <input  type="submit" value="See More"/>
+      </form>
   }
-
 
 </div>
     )

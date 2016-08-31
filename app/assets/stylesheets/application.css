@@ -14,7 +14,6 @@
  *= require_self
  */
 
-
 #svg {
   width: 100%;
   height: 700px;
@@ -49,4 +48,73 @@
 
 #nav-button Button {
   text-decoration: none;
+}
+
+.movie-list h1 {
+  padding-left: 37px;
+  padding-bottom: 30px;
+  font-size: 42px;
+  text-decoration: underline;
+}
+
+.movie-list li {
+  list-style-type: none;
+  display: inline-block;
+  height: 405px;
+  width: 25%;
+  line-height:200%;
+}
+
+.movie-desc a {
+  color: #333;
+  font-size: 25px;
+}
+
+.movie-desc a:hover {
+  color: gray;
+  text-decoration: none;
+}
+
+.movie-desc img {
+  width: 175px;
+  height: 220px;
+  border: 2px solid black;
+}
+
+#vote p {
+  padding-top: 10px;
+  margin-bottom: 0;
+}
+
+.vote-buttons {
+  display: inline-block;
+}
+
+.vote-buttons input {
+  background-color: white;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.vote-buttons input[type="submit"]:hover {
+  color: red;
+}
+
+.vote-buttons input[type="submit"]:focus {
+  outline: 0;
+}
+
+.desc-toggle input {
+  background-color: white;
+  border: none;
+}
+
+.desc-toggle input[type="submit"]:hover {
+  color:red;
+  font-size: 20px;
+}
+
+.desc-toggle input[type="submit"]:focus {
+  outline: 0;
 }
