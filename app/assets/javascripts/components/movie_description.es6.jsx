@@ -22,7 +22,10 @@ render(){
 
 
   <a href={`/movies/${movie.id}`}> {movie.title}</a>
+
+
   <VoteButton movie={movie} />
+
 
 
     {this.state.display ?  <form onClick={this.movieClick}>
