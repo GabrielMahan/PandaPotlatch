@@ -33,6 +33,11 @@ background: linear-gradient(45deg, rgba(227,227,227,1) 0%, rgba(219,219,219,0.17
 
 .container h2 {
   font-size: 42px;
+  color: black;
+}
+
+.field label {
+  color: black;
 }
 
 .field {
